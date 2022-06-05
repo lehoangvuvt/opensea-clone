@@ -18,7 +18,7 @@ const initialState = {
     loading: 'idle'
 }
 
-const AppSetting = createSlice({
+const AppSettingSlice = createSlice({
     name: 'APP_SETTING',
     initialState,
     reducers: {
@@ -41,6 +41,6 @@ const AppSetting = createSlice({
     }
 })
 
-const { actions, reducer } = AppSetting
+const { actions, reducer } = AppSettingSlice
 export const { switchMode } = actions
 export default reducer

@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from '../../Hooks/useRouter'
 import { switchMode } from '../../Reducer/slices/AppSetting'
+import { loginMetamask } from '../../Reducer/slices/User'
 import SearchBar from '../SearchBar'
 import {
     Container,
@@ -13,7 +14,8 @@ import {
     DropdownItem,
     RightContainer,
     Slider,
-    Toggle
+    Toggle,
+    LoginButton
 } from './style'
 
 const Header = () => {
@@ -24,6 +26,10 @@ const Header = () => {
 
     const backHome = () => {
         router.navigate('/')
+    }
+
+    const handleLogin = () => {
+        dispatch(loginMetamask())
     }
 
     return (
@@ -71,6 +77,7 @@ const Header = () => {
                 <MenuItem>Create</MenuItem>
             </MenuContainer>
             <RightContainer>
+                <LoginButton onClick={handleLogin}>Login</LoginButton>
                 <Slider onClick={(e) => {
                     if (e.target === e.currentTarget) {
                         dispatch(switchMode())

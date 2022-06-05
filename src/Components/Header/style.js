@@ -27,7 +27,7 @@ export const Logo = styled.div`
     gap: 10px;
     font-weight: bold;
     font-size: 20px;
-    width: 23%;
+    width: 20%;
     img {
         width: 40px;
     }
@@ -128,7 +128,7 @@ export const RightContainer = styled.div`
     padding-left: 10px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding-right: 25px;
 `
 
@@ -146,7 +146,7 @@ export const Slider = styled.div`
     background: rgba(0,0,0,0.2);
     justify-content: flex-start;
     &.on{
-        background: blue;
+        background: #348AC7;
     }
 `
 
@@ -181,5 +181,23 @@ export const Toggle = styled.div`
                 transform: translateX(22px);
             }
         }
+    }
+`
+
+export const LoginButton = styled.button`
+    width: 60%;
+    height: 35px;
+    background: #348AC7;
+    color: white;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 14px;
+    opacity: 0.7;
+    transition: opacity 0.25s ease;
+    &:hover{
+        opacity: 1;
     }
 `

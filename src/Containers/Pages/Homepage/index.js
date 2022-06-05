@@ -1,5 +1,6 @@
-import { useDispatch, useSelector } from "react-redux";
-import MyButton from "../../Components/Button";
+import { useDispatch, useSelector } from "react-redux"
+import MyButton from "../../../Components/Button"
+import { loginMetamask } from "../../../Reducer/slices/User"
 import {
   Container,
   Banner,
@@ -19,6 +20,11 @@ function Homepage() {
   const nftImg1 = 'https://coin68.com/wp-content/uploads/2021/12/adidas-BAYC.jpg'
   const nftImg2 = 'https://coin68.com/wp-content/uploads/2021/12/adidas-BAYC.jpg'
   const appSetting = useSelector(state => state.APP_SETTING)
+  const dispatch = useDispatch()
+
+  const handleSignMetamask = () => {
+    dispatch(loginMetamask())
+  }
 
   return (
     <Container className={appSetting?.darkMode ? 'dark' : ''}>
