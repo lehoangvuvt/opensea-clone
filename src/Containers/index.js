@@ -5,6 +5,7 @@ import Header from '../Components/Header'
 import Loading from '../Components/Loading'
 import { fetchAppSetting } from "../Reducer/slices/AppSetting"
 import Homepage from "./Pages/Homepage"
+import Search from "./Pages/Search"
 import { Container } from './style'
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Header />
         <Routes>
           <Route path='/' element={<Homepage />} />
+          <Route path='/assets' element={<Search />} />
         </Routes>
       </Container>
       :

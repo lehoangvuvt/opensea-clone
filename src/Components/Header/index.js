@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useRouter } from '../../Hooks/useRouter'
 import { switchMode } from '../../Reducer/slices/AppSetting'
 import { loginMetamask } from '../../Reducer/slices/User'
+import Web3Services from '../../Services/Web3'
 import SearchBar from '../SearchBar'
 import {
     Container,

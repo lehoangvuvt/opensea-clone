@@ -7,12 +7,13 @@ export const Container = styled.div`
     height: 70px;
     top: 0;
     left: 0;
-    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.4);
+    // box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.4);
     display: flex;
     flex-flow: row wrap;
     padding-left: 25px;
     box-sizing: border-box;
     background: white;
+    z-index: 102;
     &.dark {
         background: black;
     }
@@ -74,7 +75,7 @@ export const MenuItem = styled.div`
     justify-content: center;
     font-weight: bold;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 14px;
 `
 
 export const Dropdown = styled.div`
@@ -83,16 +84,16 @@ export const Dropdown = styled.div`
     top: 70px;
     left: 0px;
     z-index: 1;
-    box-shadow: 0px 11px 12px 0px rgba(0,0,0,0.5);
+    box-shadow: 0px 11px 12px 0px rgba(0,0,0,0.4);
     border: 1px solid rgba(0,0,0,0.1);
     animation: appear 0.4s ease;
     overflow: hidden;
     border-radius: 0px 0px 5px 5px;
     color: rgb(4, 17, 29);
-    background: white;
+    background: white !important;
     &.dark {
         color: white;
-        background: black;
+        background: black !important;
     }
     @keyframes appear {
         from {
@@ -106,11 +107,11 @@ export const Dropdown = styled.div`
 
 export const DropdownItem = styled.div`
     width: 100%;
-    height: 55px;
+    height: 50px;
     display: flex;
     align-items: center;
     padding-left: 25px;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;
     border: 1px solid rgba(0,0,0,0);
     box-sizing: border-box;
@@ -146,7 +147,7 @@ export const Slider = styled.div`
     background: rgba(0,0,0,0.2);
     justify-content: flex-start;
     &.on{
-        background: #348AC7;
+        background: #0072ff;
     }
 `
 
@@ -187,7 +188,7 @@ export const Toggle = styled.div`
 export const LoginButton = styled.button`
     width: 60%;
     height: 35px;
-    background: #348AC7;
+    background: #0072ff;
     color: white;
     border: none;
     outline: none;

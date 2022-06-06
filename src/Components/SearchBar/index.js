@@ -14,16 +14,15 @@ import {
     SearchInput,
 } from './style'
 import Loading from '../Loading'
+import SearchService from '../../Services/Api/searcch.service'
 
 const SearchBar = () => {
     const getSuggestion = async (searchText) => {
         setDropdownResults([])
         setLoading(true)
-        const response = await axios({
-            url: `https://tiki.vn/api/v2/search/suggestion?&q=${searchText}`
-        })
+        const response = await SearchService.getSuggestion(searchText)
         setTimeout(() => {
-            setDropdownResults(response.data.data)
+            setDropdownResults(response.data)
             setLoading(false)
         }, 1000)
     }
@@ -67,8 +66,9 @@ const SearchBar = () => {
                 value={searchText}
                 onChange={handleChange}
                 onKeyDown={handleKeyDown}
+                className={isFocus}
                 onFocus={() => { setFocus(true) }}
-                onBlur={() => { setFocus(false) }} />
+                onBlur={() => { setTimeout(() => { setFocus(false) }, 100) }} />
             {searchText?.length > 0 &&
                 <img
                     onClick={() => {
@@ -82,7 +82,9 @@ const SearchBar = () => {
                 <Dropdown>
                     <DropdownItemTitle>COLLECTIONS</DropdownItemTitle>
                     {dropdownResults.slice(0, 5).map(item =>
-                        <DropdownItem>
+                        <DropdownItem onClick={() => {
+                            router.navigate(`/assets?q=${item.keyword}`)
+                        }}>
                             <DropdownItemLeft>
                                 <img alt='org-icon' src='https://lh3.googleusercontent.com/Ju9CkWtV-1Okvf45wo8UctR-M9He2PjILP0oOvxE89AyiPPGtrR3gysu1Zgy0hjd2xKIgjJJtWIc0ybj4Vd7wv8t3pxDGHoJBzDB=s64' />
                             </DropdownItemLeft>

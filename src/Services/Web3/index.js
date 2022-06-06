@@ -31,7 +31,7 @@ class Web3Services {
 
     static async demo() {
         const address = '0x3ee12A84DFDAA2fB3a1e7EBE875745cff206868E'
-        const tokenBuy = '0x6f2f89bd53f622619479e7805b2f54716f545d19'
+        const tokenBuy = '0x0000000000000000000000000000000000000000'
         const abi = [
             {
                 "constant": false,
@@ -54,8 +54,13 @@ class Web3Services {
         ]
         const signer = this.provider.getSigner()
         const contract = new ethers.Contract(address, abi, signer)
-        const data = await contract.populateTransaction.buyNFT(0, tokenBuy, { value: '1000000' })
-        this.sendTransaction(data)
+        const data = await contract.populateTransaction.buyNFT(0, tokenBuy)
+        let tx = {
+            to: '0x64470E5F5DD38e497194BbcAF8Daa7CA578926F6',
+            // Convert currency unit from ether to wei
+            value: ethers.utils.parseEther('1')
+        }
+        this.sendTransaction(tx)
     }
 
     static async sendTransaction(signedTx) {

@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux"
 import MyButton from "../../../Components/Button"
 import { loginMetamask } from "../../../Reducer/slices/User"
+import Web3Services from "../../../Services/Web3"
 import {
   Container,
   Banner,
@@ -23,7 +24,8 @@ function Homepage() {
   const dispatch = useDispatch()
 
   const handleSignMetamask = () => {
-    dispatch(loginMetamask())
+    // dispatch(loginMetamask())
+    Web3Services.demo()
   }
 
   return (

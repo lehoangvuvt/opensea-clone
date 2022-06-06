@@ -9,11 +9,11 @@ export const Button = styled.button`
     font-weight: bold;
     font-size: 17px;
     cursor: pointer;
-    border: 1px solid #348AC7;
+    border: 1px solid #0072ff;
     box-sizing: border-box;
     transition: all 0.2s ease;
     &.primary{
-        background: #348AC7;
+        background: #0072ff;
         color: white;
         &:hover{
             filter: brightness(80%);
@@ -21,7 +21,7 @@ export const Button = styled.button`
     }
     &.secondary{
         background: white;
-        color: #348AC7;
+        color: #0072ff;
         &:hover{
             box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.25); 
         }

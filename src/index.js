@@ -6,6 +6,7 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './Containers'
 import store from './Reducer/store'
 import './style.scss'
+import 'antd/dist/antd.css'
 
 const root = ReactDOM.createRoot(document.getElementById('root'))
 const client = new QueryClient()
