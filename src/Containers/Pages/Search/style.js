@@ -13,25 +13,20 @@ export const FiltersContainer = styled.div`
   overflow-y: auto;
 `
 
-export const NftsContainer = styled.div`
-  width: 75%;
-  margin-left: 25%;
-`
-
 export const Header = styled.div`
   width: 100%;
   height: 70px;
   position: fixed;
   box-sizing: border-box;
   background: white;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-  border-top: 1px solid rgba(0,0,0,0.1);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
   z-index: 101;
   display: flex;
   flex-flow: row wrap;
   align-items: center;
   padding-left: 25px;
-`
+`;
 
 export const ToggleFilterButton = styled.div`
   width: 50px;
@@ -43,11 +38,40 @@ export const ToggleFilterButton = styled.div`
   align-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  img{
-      max-width: 60%;
-      margin-top: 5px;
+  img {
+    max-width: 60%;
+    margin-top: 5px;
   }
-  &:hover{
-      box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.2);
+  &:hover {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  }
+`
+
+export const NftsContainer = styled.div`
+  width: 75%;
+  margin-left: 25%;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  box-sizing: border-box;
+  padding-top: 80px;
+  gap: 20px;
+  &.expand {
+    width: 100%;
+    margin-left: 0%;
+  }
+`
+
+export const Nft = styled.div`
+  width: 30%;
+  padding-bottom: 30%;
+  border-radius: 8px;
+  background-size: cover;
+  background-image: url("${props => props.image}");
+  background-position: center;
+  cursor: pointer;
+  &.expand {
+    width: 23%;
+    padding-bottom: 23%;
   }
 `
