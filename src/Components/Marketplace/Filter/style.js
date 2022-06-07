@@ -13,6 +13,7 @@ export const FilterContainer = styled.div`
 
 export const MyCollapse = styled(Collapse)`
   border: none !important;
+  background: transparent;
   .ant-collapse-arrow{
     margin-right: 18px !important;
   }

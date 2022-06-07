@@ -9,7 +9,7 @@ export const FiltersContainer = styled.div`
   margin-top: 70px;
   width: 25%;
   position: fixed;
-  height: 100vh;
+  height: calc(100vh - 140px);
   overflow-y: auto;
 `
 
