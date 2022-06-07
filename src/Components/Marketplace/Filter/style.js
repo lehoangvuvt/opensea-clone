@@ -24,7 +24,7 @@ export const PanelHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   font-size: 15px;
-  padding-left: 15px;
+  padding-left: 12px;
   button {
     background: transparent;
     cursor: pointer;
