@@ -9,15 +9,23 @@ const initialState = {
 
 export const loginMetamask = createAsyncThunk(
     'user/signMessage',
-    async () => {
-        const response = await axios({
-            url: 'https://jsonplaceholder.typicode.com/posts/1',
+    async (address) => {
+        const getMessageResponse = await axios({
+            url: `https://api-twon.herokuapp.com/users/getMessageHash/${address}`,
             method: 'GET'
         })
-        const message = response.data.body
-        const data = await Web3Services.signMetamask(message)
-        const userData = { sig: data.sig, address: data.address }
-        return userData
+        const message = getMessageResponse.data.message
+        const sig = await Web3Services.signMetamask(message)
+        const signInBody = {
+            signature: sig
+        }
+        const signInWithSigResponse = await axios({
+            url: `https://api-twon.herokuapp.com/auth/sign-in-with-signature`,
+            method: 'POST',
+            data: signInBody
+        })
+        console.log(signInWithSigResponse.data)
+        return { sig }
     }
 )
 

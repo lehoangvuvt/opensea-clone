@@ -1,10 +1,12 @@
 import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import AppReducer from './slices/AppSetting'
+import MetamaskReducer from "./slices/Metamask";
 import UserReducer from './slices/User'
 
 const rootReducer = combineReducers({
+    METAMASK: MetamaskReducer,
     APP_SETTING: AppReducer,
-    USER: UserReducer
+    USER: UserReducer,
 })
 
 const store = configureStore({

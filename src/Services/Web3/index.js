@@ -1,7 +1,13 @@
 import { ethers, utils } from 'ethers'
+import { addChain } from '../../Reducer/slices/Metamask'
 
 class Web3Services {
     static provider = new ethers.providers.Web3Provider(window.ethereum)
+
+    static async detectNetwork() {
+        const network = await this.provider.getNetwork()
+        return network
+    }
 
     static async changeNetwork() {
         const network = {
@@ -19,14 +25,9 @@ class Web3Services {
     }
 
     static async signMetamask(message) {
-        const accounts = await this.provider.send("eth_requestAccounts", [])
         const signer = this.provider.getSigner()
         const sig = await signer.signMessage(message)
-        const address = await signer.getAddress()
-        return {
-            sig,
-            address
-        }
+        return sig
     }
 
     static async demo() {

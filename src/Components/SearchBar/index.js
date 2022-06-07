@@ -68,7 +68,7 @@ const SearchBar = () => {
                 onKeyDown={handleKeyDown}
                 className={isFocus}
                 onFocus={() => { setFocus(true) }}
-                onBlur={() => { setTimeout(() => { setFocus(false) }, 100) }} />
+                onBlur={() => { setTimeout(() => { setFocus(false) }, 250) }} />
             {searchText?.length > 0 &&
                 <img
                     onClick={() => {
@@ -83,6 +83,7 @@ const SearchBar = () => {
                     <DropdownItemTitle>COLLECTIONS</DropdownItemTitle>
                     {dropdownResults.slice(0, 5).map(item =>
                         <DropdownItem onClick={() => {
+                            setSearchText(item.keyword)
                             router.navigate(`/assets?q=${item.keyword}`)
                         }}>
                             <DropdownItemLeft>

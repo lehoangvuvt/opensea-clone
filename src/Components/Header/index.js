@@ -29,8 +29,9 @@ const Header = () => {
         router.navigate('/')
     }
 
-    const handleLogin = () => {
-        dispatch(loginMetamask())
+    const handleLogin = async () => {
+        const address = await window.ethereum.request({ method: 'eth_requestAccounts' });
+        dispatch(loginMetamask(address[0]))
     }
 
     return (
