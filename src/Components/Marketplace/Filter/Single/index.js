@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import { Collapse } from 'antd'
 import { Router } from 'common/routes'
 import {
   FilterContainer,
@@ -7,7 +6,8 @@ import {
   CheckboxContainer,
   Checkbox,
   Circle,
-  PanelHeader
+  PanelHeader,
+  MyCollapse
 } from '../style'
 import { images } from 'config/images'
 
@@ -24,7 +24,7 @@ const SingleFilter = ({
   resetFilter
 }) => {
   const settings = { openAnimation: null, expandIconPosition: 'right' }
-  const { Panel } = Collapse
+  const { Panel } = MyCollapse
   const [allKeys, setAllKeys] = useState([])
 
   const onChange = (key) => {
@@ -114,10 +114,11 @@ const SingleFilter = ({
   }
 
   return (
-    <Collapse
+    <MyCollapse
       {...settings}
       defaultActiveKey={[propertyName]}
       onChange={onChange}
+
     >
       <Panel header={
         <PanelHeader>{headerName} <button onClick={() => { resetFilter(propertyName) }}>Reset</button></PanelHeader>
@@ -128,7 +129,7 @@ const SingleFilter = ({
           {filterType === 'circle' && renderCircle()}
         </FilterContainer>
       </Panel>
-    </Collapse>
+    </MyCollapse>
   )
 }
 

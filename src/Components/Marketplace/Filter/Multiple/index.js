@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Collapse } from "antd";
 import {
   FilterContainer,
   Tag,
   CheckboxContainer,
   Checkbox,
   PanelHeader,
+  MyCollapse,
 } from "../style";
 import checkMarkImg from "./check-mark.svg";
 
@@ -22,7 +22,7 @@ const MultipleFilter = ({
   resetFilter,
 }) => {
   const settings = { openAnimation: null, expandIconPosition: 'right' } 
-  const { Panel } = Collapse;
+  const { Panel } = MyCollapse;
   const [allKeys, setAllKeys] = useState([]);
 
   const onChange = (key) => {
@@ -115,7 +115,7 @@ const MultipleFilter = ({
   };
 
   return (
-    <Collapse
+    <MyCollapse
       {...settings}
       defaultActiveKey={[propertyName]}
       onChange={onChange}
@@ -142,7 +142,7 @@ const MultipleFilter = ({
           {filterType === "range" && renderCheckboxes()}
         </FilterContainer>
       </Panel>
-    </Collapse>
+    </MyCollapse>
   );
 };
 

@@ -1,11 +1,21 @@
 import styled from 'styled-components'
+import { Collapse } from "antd";
 
 export const FilterContainer = styled.div`
-  width: 100%;
+  width: 95%;
+  margin: 0 auto;
   display: flex;
   flex-flow: ${props => props.flexDirection} wrap;
   gap: 10px;
-  padding: 10px 16px 25px 16px;
+  padding: 10px 10px 25px 10px;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+`
+
+export const MyCollapse = styled(Collapse)`
+  border: none !important;
+  .ant-collapse-arrow{
+    margin-right: 18px !important;
+  }
 `
 
 export const PanelHeader = styled.div`
@@ -14,6 +24,7 @@ export const PanelHeader = styled.div`
   justify-content: space-between;
   align-items: center;
   font-size: 15px;
+  padding-left: 15px;
   button {
     background: transparent;
     cursor: pointer;
@@ -59,11 +70,11 @@ export const CheckboxContainer = styled.div`
   font-size: 15px;
   align-items: center;
   justify-content: space-between;
-  margin-right: 10px; 
   padding-top: 15px;
   padding-bottom: 15px;
   padding-left: 10px;
   padding-right: 10px;
+  box-sizing: border-box;
   cursor: pointer;
   border-radius: 10px;
   transition: all 0.2s ease;
@@ -81,7 +92,6 @@ export const Checkbox = styled.div`
   border-radius: 3px;
   border: 1px solid rgba(0, 0, 0, 0.2);
   box-sizing: border-box;
-  margin-right: 6px;
   transition: border 0.2s ease;
   pointer-events: none;
   img {
