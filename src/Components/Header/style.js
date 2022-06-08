@@ -19,21 +19,39 @@ export const Container = styled.div`
     }
 `
 
-export const Logo = styled.div`
-    cursor: pointer;
+export const LogoContainer = styled.div`
     height: 100%;
     display: flex;
     flex-flow: row wrap;
     align-items: center;
     gap: 10px;
+    width: 20%;
+    &.dark {
+        color white;
+    }
+`
+
+export const Logo = styled.div` 
+    display: flex;
+    height: 100%;
+    flex-flow: row wrap
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-sizing: border-box;
+    cursor: pointer;
     font-weight: bold;
     font-size: 20px;
-    width: 20%;
     img {
         width: 40px;
     }
-    &.dark {
-        color white;
+    p{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        font-size: 20px;
+        color: rgba(0,0,0,0.9);
+        letter-spacing: 0.25px;
     }
 `
 

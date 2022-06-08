@@ -7,6 +7,7 @@ import Web3Services from '../../Services/Web3'
 import SearchBar from '../SearchBar'
 import {
     Container,
+    LogoContainer,
     Logo,
     SearchContainer,
     MenuContainer,
@@ -36,10 +37,12 @@ const Header = () => {
 
     return (
         <Container className={appSetting?.darkMode ? 'dark' : ''}>
-            <Logo onClick={backHome} className={appSetting?.darkMode ? 'dark' : ''}>
-                <img alt='logo' src='https://static.opensea.io/Logos/opensea-pride.svg' />
-                OpenSea
-            </Logo>
+            <LogoContainer className={appSetting?.darkMode ? 'dark' : ''}>
+                <Logo onClick={backHome}>
+                    <img alt='logo' src='https://static.opensea.io/Logos/opensea-pride.svg' />
+                    <p>OpenSea</p>
+                </Logo>
+            </LogoContainer>
             <SearchContainer>
                 <SearchBar />
             </SearchContainer>
