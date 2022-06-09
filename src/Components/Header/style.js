@@ -26,9 +26,6 @@ export const LogoContainer = styled.div`
     align-items: center;
     gap: 10px;
     width: 20%;
-    &.dark {
-        color white;
-    }
 `
 
 export const Logo = styled.div` 
@@ -42,6 +39,10 @@ export const Logo = styled.div`
     cursor: pointer;
     font-weight: bold;
     font-size: 20px;
+    color: rgba(0,0,0,0.9);
+    &.dark {
+        color white;
+    }
     img {
         width: 40px;
     }
@@ -50,7 +51,6 @@ export const Logo = styled.div`
         display: flex;
         align-items: center;
         font-size: 20px;
-        color: rgba(0,0,0,0.9);
         letter-spacing: 0.25px;
     }
 `
@@ -63,10 +63,11 @@ export const SearchContainer = styled.div`
 `
 
 export const MenuContainer = styled.div`
-    width: 27%;
+    flex: 1;
     height: 100%;
     display: flex;
     flex-flow: row wrap;
+    justify-content: space-around;
     color: rgba(4, 17, 29, 0.8);
     &>div{
         &:hover{
@@ -85,7 +86,6 @@ export const MenuContainer = styled.div`
 
 export const MenuItem = styled.div`
     position: relative;
-    width: calc(100% / 4);
     height: 100%;
     display: flex;
     flex-flow: column wrap;
@@ -93,7 +93,7 @@ export const MenuItem = styled.div`
     justify-content: center;
     font-weight: bold;
     cursor: pointer;
-    font-size: 14px;
+    font-size: 15px;
 `
 
 export const Dropdown = styled.div`
@@ -101,6 +101,7 @@ export const Dropdown = styled.div`
     width: 220px;
     top: 70px;
     left: 0px;
+    right: 0px;
     z-index: 1;
     box-shadow: 0px 11px 12px 0px rgba(0,0,0,0.4);
     border: 1px solid rgba(0,0,0,0.1);
@@ -112,6 +113,9 @@ export const Dropdown = styled.div`
     &.dark {
         color: white;
         background: black !important;
+    }
+    &.last {
+        left: -140px;
     }
     @keyframes appear {
         from {
@@ -129,7 +133,7 @@ export const DropdownItem = styled.div`
     display: flex;
     align-items: center;
     padding-left: 25px;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: bold;
     border: 1px solid rgba(0,0,0,0);
     box-sizing: border-box;

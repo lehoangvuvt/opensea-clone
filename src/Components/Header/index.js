@@ -37,8 +37,8 @@ const Header = () => {
 
     return (
         <Container className={appSetting?.darkMode ? 'dark' : ''}>
-            <LogoContainer className={appSetting?.darkMode ? 'dark' : ''}>
-                <Logo onClick={backHome}>
+            <LogoContainer>
+                <Logo className={appSetting?.darkMode ? 'dark' : ''} onClick={backHome}>
                     <img alt='logo' src='https://static.opensea.io/Logos/opensea-pride.svg' />
                     <p>OpenSea</p>
                 </Logo>
@@ -80,8 +80,27 @@ const Header = () => {
                     }
                 </MenuItem>
                 <MenuItem>Create</MenuItem>
+                <MenuItem
+                    onMouseLeave={() => { setDropdownKey(null) }}
+                    onMouseOver={() => { setDropdownKey(4) }}>
+                    Login
+                    {dropdownKey === 4 &&
+                        <Dropdown className={appSetting?.darkMode ? 'dark last' : 'last'}>
+                            <DropdownItem>
+                                <Slider onClick={(e) => {
+                                    if (e.target === e.currentTarget) {
+                                        dispatch(switchMode())
+                                    }
+                                }} className={appSetting?.darkMode ? 'on' : ''}>
+                                    <Toggle className={appSetting?.darkMode ? 'on' : 'off'} />
+                                </Slider>
+                            </DropdownItem>
+                            <DropdownItem>Solana NFTs</DropdownItem>
+                            <DropdownItem>Art</DropdownItem>
+                        </Dropdown>}
+                </MenuItem>
             </MenuContainer>
-            <RightContainer>
+            {/* <RightContainer>
                 <LoginButton onClick={handleLogin}>Login</LoginButton>
                 <Slider onClick={(e) => {
                     if (e.target === e.currentTarget) {
@@ -90,7 +109,7 @@ const Header = () => {
                 }} className={appSetting?.darkMode ? 'on' : ''}>
                     <Toggle className={appSetting?.darkMode ? 'on' : 'off'} />
                 </Slider>
-            </RightContainer>
+            </RightContainer> */}
         </Container>
     )
 }
